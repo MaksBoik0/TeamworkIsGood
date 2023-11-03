@@ -70,5 +70,14 @@ async def decay(ctx):
         
     await ctx.send(infotext)
     await ctx.send(file=picture)
+
+#случайная картинка с поделкой
+@bot.command()
+async def podelka(ctx):
+    img_name = random.choice(os.listdir('images'))
+    with open(f'images/{img_name}', 'rb') as f:
+        picture = discord.File(f)
+    await ctx. send(file=picture)
+    #как-то делать так, чтобы картинка после того, как отправилась один раз, больше не отправлялась
     
 bot.run("vstavish")
